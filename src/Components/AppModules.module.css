@@ -1,0 +1,161 @@
+.App {
+  text-align: center;
+  background: linear-gradient(180deg, #efd5ff 0%, #515ada 100%);
+  min-height: 100vh;
+  min-width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 25px;
+  font-family: 'Noto Sans', sans-serif;
+font-family: 'Open Sans', sans-serif;
+font-family: 'Roboto', sans-serif;
+}
+
+.wrapper {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.weatherInfo {
+  display: flex;
+  min-width: 900px;
+  max-width: 1000px;
+  min-height: 900px;
+  max-height: 1000px;
+  background-color: white;
+  border-radius: 10%;
+  box-sizing: border-box;
+  justify-content: space-around;
+  flex-direction: column;
+}
+
+.extraWeatherInfo {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.name,
+.degree {
+  font-weight: bold;
+  font-size: 30px;
+}
+
+.textField {
+  border: none; /* <-- This thing here */
+  border:solid 1px #ccc;
+  border-radius: 10px;
+  margin-left: 52px;
+}
+
+input {
+  text-align: center;
+}
+
+.search {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.icon {
+  padding-left: 20px;
+}
+
+textarea:focus, input:focus{
+  outline: none;
+}
+
+.degree {
+  position: relative;
+}
+
+.degree::after  {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border: 2px solid black;
+  position: absolute;
+  border-radius: 50%;
+  bottom: 20px;
+}
+
+.min::after,
+.max::after {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border: 1px solid black;
+  position: absolute;
+  border-radius: 50%;
+  bottom: 12px;
+}
+
+.min, .max {
+  margin: 10px;
+  position: relative;
+}
+
+.cloud, 
+.min,
+.max {
+  font-size: 20px;
+}
+
+.wrapperWeather {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 218px;
+}
+
+.loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+}
+
+.secondLoading {
+  width: 100%;
+  height: 1000px;
+  background-color: red;
+}
+
+::-webkit-input-placeholder {
+  text-align: center;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+  text-align: center;  
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+  text-align: center;  
+}
+
+:-ms-input-placeholder {  
+  text-align: center; 
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
