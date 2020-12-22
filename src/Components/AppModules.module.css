@@ -8,9 +8,15 @@
   justify-content: center;
   align-items: center;
   font-size: 25px;
-  font-family: 'Noto Sans', sans-serif;
-font-family: 'Open Sans', sans-serif;
-font-family: 'Roboto', sans-serif;
+  font-family: "Noto Sans", sans-serif;
+  font-family: "Open Sans", sans-serif;
+  font-family: "Roboto", sans-serif;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 .wrapper {
@@ -23,14 +29,15 @@ font-family: 'Roboto', sans-serif;
 
 .weatherInfo {
   display: flex;
-  min-width: 900px;
+  min-width: 999px;
   max-width: 1000px;
   min-height: 900px;
   max-height: 1000px;
   background-color: white;
   border-radius: 10%;
   box-sizing: border-box;
-  justify-content: space-around;
+
+  justify-content: start;
   flex-direction: column;
 }
 
@@ -48,36 +55,44 @@ font-family: 'Roboto', sans-serif;
 }
 
 .textField {
-  border: none; /* <-- This thing here */
-  border:solid 1px #ccc;
+  border: none;
+  border: solid 1px #ccc;
   border-radius: 10px;
   margin-left: 52px;
+  margin-left: 49px;
 }
 
 input {
   text-align: center;
+  font-family: "Noto Sans", sans-serif;
+  font-family: "Open Sans", sans-serif;
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
 }
 
 .search {
   display: flex;
   flex-direction: row;
   justify-content: center;
+  margin-top: 104px;
 }
 
 .icon {
   padding-left: 20px;
 }
 
-textarea:focus, input:focus{
+textarea:focus,
+input:focus {
   outline: none;
 }
 
 .degree {
   position: relative;
+  margin-top: 8px;
 }
 
-.degree::after  {
-  content: '';
+.degree::after {
+  content: "";
   width: 6px;
   height: 6px;
   border: 2px solid black;
@@ -88,7 +103,7 @@ textarea:focus, input:focus{
 
 .min::after,
 .max::after {
-  content: '';
+  content: "";
   width: 6px;
   height: 6px;
   border: 1px solid black;
@@ -97,12 +112,13 @@ textarea:focus, input:focus{
   bottom: 12px;
 }
 
-.min, .max {
+.min,
+.max {
   margin: 10px;
   position: relative;
 }
 
-.cloud, 
+.cloud,
 .min,
 .max {
   font-size: 20px;
@@ -112,7 +128,8 @@ textarea:focus, input:focus{
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  min-height: 218px;
+  min-height: 248px;
+  margin-top: 160px;
 }
 
 .loader {
@@ -129,22 +146,127 @@ textarea:focus, input:focus{
   background-color: red;
 }
 
+.dayOftheWeek {
+  display: flex;
+  flex-direction: row;
+  font-size: 17px;
+  justify-content: space-around;
+  box-sizing: border-box;
+  margin-top: 160px;
+}
+
+.temp {
+  position: relative;
+  width: 25px;
+}
+
+.temp::after {
+  content: "";
+  width: 4px;
+  height: 4px;
+  border: 1px solid black;
+  position: absolute;
+  border-radius: 50%;
+  bottom: 12px;
+  right: -5px;
+}
+
+.day {
+  box-sizing: border-box;
+  line-height: 35px;
+}
+
+.weekWeather {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  min-height: 100px;
+}
+
 ::-webkit-input-placeholder {
   text-align: center;
 }
 
-:-moz-placeholder { /* Firefox 18- */
-  text-align: center;  
+:-moz-placeholder {
+  text-align: center;
 }
 
-::-moz-placeholder {  /* Firefox 19+ */
-  text-align: center;  
+::-moz-placeholder {
+  text-align: center;
 }
 
-:-ms-input-placeholder {  
-  text-align: center; 
+:-ms-input-placeholder {
+  text-align: center;
 }
 
+@media (max-width: 413px) {
+  .weatherInfo {
+    min-height: 200px;
+    min-width: 200px;
+    border-radius: 0;
+  }
+
+  .search,
+  .wrapperWeather,
+  .dayOftheWeek {
+    margin: 10px;
+    font-size: 11px;
+  }
+
+  .icon {
+    font-size: 18px;
+  }
+
+  .temp::after {
+    width: 1px;
+    height: 1px;
+    right: 0px;
+  }
+
+  .img img {
+    width: 50px;
+    height: auto;
+  }
+}
+
+@media (min-width: 414px) and (max-width: 667px) {
+  .weatherInfo {
+    min-height: 200px;
+    min-width: 200px;
+    border-radius: 0;
+  }
+  .search,
+  .wrapperWeather,
+  .dayOftheWeek {
+    margin: 10px;
+    font-size: 12px;
+  }
+  .temp::after {
+    width: 2px;
+    height: 2px;
+    right: 0px;
+  }
+}
+
+@media (min-width: 668px) and (max-width: 1000px) {
+  .weatherInfo {
+    min-height: 400px;
+    min-width: 200px;
+    border-radius: 0;
+  }
+  .search,
+  .wrapperWeather,
+  .dayOftheWeek {
+    margin: 10px;
+    font-size: 12px;
+  }
+  .temp::after {
+    width: 2px;
+    height: 2px;
+    right: 0px;
+  }
+}
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
