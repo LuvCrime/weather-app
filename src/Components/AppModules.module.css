@@ -200,10 +200,10 @@ input:focus {
   text-align: center;
 }
 
-@media (max-width: 413px) {
+@media (max-width: 321px) {
   .weatherInfo {
-    min-height: 200px;
-    min-width: 200px;
+    min-height: 448px;
+    min-width: 320px;
     border-radius: 0;
   }
 
@@ -229,11 +229,39 @@ input:focus {
     height: auto;
   }
 }
+@media (min-width: 322px) and (max-width: 413px) {
+  .weatherInfo {
+    min-height: 448px;
+    min-width: 375px;
+    border-radius: 0;
+  }
+  .search,
+  .wrapperWeather,
+  .dayOftheWeek {
+    margin: 10px;
+    font-size: 11px;
+  }
+
+  .icon {
+    font-size: 18px;
+  }
+
+  .temp::after {
+    width: 1px;
+    height: 1px;
+    right: 0px;
+  }
+
+  .img img {
+    width: 50px;
+    height: auto;
+  }
+}
 
 @media (min-width: 414px) and (max-width: 667px) {
   .weatherInfo {
-    min-height: 200px;
-    min-width: 200px;
+    min-height: 452px;
+    min-width: 414px;
     border-radius: 0;
   }
   .search,
@@ -251,8 +279,8 @@ input:focus {
 
 @media (min-width: 668px) and (max-width: 1000px) {
   .weatherInfo {
-    min-height: 400px;
-    min-width: 200px;
+    min-height: 435px;
+    min-width: 768px;
     border-radius: 0;
   }
   .search,
