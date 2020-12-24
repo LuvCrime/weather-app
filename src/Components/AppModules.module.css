@@ -176,6 +176,21 @@ input:focus {
   line-height: 35px;
 }
 
+.suggestList {
+  position: relative
+}
+.suggest {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border: 1px solid black;
+  z-index: 10;
+  left: 456.2px;
+  max-width: 160px;
+  font-size: 20px;
+}
+
 .weekWeather {
   display: flex;
   flex-direction: column;
@@ -206,7 +221,7 @@ input:focus {
     min-width: 320px;
     border-radius: 0;
   }
-
+  
   .search,
   .wrapperWeather,
   .dayOftheWeek {

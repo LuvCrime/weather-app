@@ -12,6 +12,7 @@ class App extends React.Component {
     super(props);
     this.state = {
       loading: true,
+      suggest: ''
     };
     autoBind(this);
   }
@@ -120,12 +121,27 @@ class App extends React.Component {
       });
   }
 
+
   onInputOnChange(e) {
     var currVal = e.target.value;
     this.setState({
       name: currVal,
     });
-  }
+    var filtedCities = window.suggest.filter((city) => {
+      return(city.toLowerCase().startsWith(currVal.toLowerCase()))
+    });
+
+    var mapped = filtedCities.map(city => {
+      return <div>{city}</div>
+  })
+
+console.log(mapped)
+
+    this.setState({
+      suggest: mapped.slice(0, 9)
+    })
+  
+}
 
   onSearchClick() {
     this.getCity(this.state.name);
@@ -135,11 +151,13 @@ class App extends React.Component {
   }
 
   render() {
+
     const img = `http://openweathermap.org/img/wn/${this.props.icon}@2x.png`;
 
     String.prototype.capitalize = function () {
       return this.charAt(0).toUpperCase() + this.slice(1);
     };
+    
     if (this.state.loading && !this.props.name) {
       return (
         <div className={AppModules.loader}>
@@ -157,6 +175,7 @@ class App extends React.Component {
         <div className={AppModules.App}>
           <div className={AppModules.wrapper}>
             <div className={AppModules.weatherInfo}>
+              <div className={AppModules.suggestList}>
               <div className={AppModules.search}>
                 <input
                   className={AppModules.textField}
@@ -167,6 +186,10 @@ class App extends React.Component {
                 <div className={AppModules.icon} onClick={this.onSearchClick}>
                   <FontAwesomeIcon icon={faSearchLocation} />
                 </div>
+                </div>
+                {this.state.suggest &&(
+                <div className={AppModules.suggest}>{this.state.suggest}</div>
+               )}
               </div>
               <div className={AppModules.wrapperWeather}>
                 <div className={AppModules.name}>{this.props.name}</div>
