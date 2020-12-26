@@ -12,7 +12,7 @@ class App extends React.Component {
     super(props);
     this.state = {
       loading: true,
-      suggest: ''
+      suggest: "",
     };
     autoBind(this);
   }
@@ -97,7 +97,6 @@ class App extends React.Component {
         return response.json();
       })
       .then((data) => {
-        console.log(data.weather[0].icon);
         this.props.addData(
           data.name,
           data.main.temp,
@@ -121,27 +120,38 @@ class App extends React.Component {
       });
   }
 
-
   onInputOnChange(e) {
     var currVal = e.target.value;
     this.setState({
       name: currVal,
     });
     var filtedCities = window.suggest.filter((city) => {
-      return(city.toLowerCase().startsWith(currVal.toLowerCase()))
+      return city.toLowerCase().startsWith(currVal.toLowerCase());
     });
 
-    var mapped = filtedCities.map(city => {
-      return <div>{city}</div>
-  })
-
-console.log(mapped)
-
+    var mapped = filtedCities.map((city) => {
+      return (
+        <div
+          className={AppModules.city}
+          onClick={(event)=>this.onSuggestClick(event)}
+          id={city}>
+          {city}
+        </div>
+      );
+    });
     this.setState({
-      suggest: mapped.slice(0, 9)
-    })
-  
-}
+      suggest: mapped.slice(0, 9),
+    });
+  }
+
+  onSuggestClick(event) {
+    var currCity = event.target.id;
+    this.getCity(currCity);
+    this.setState({
+      suggest: '',
+      name: '',
+    });
+  }
 
   onSearchClick() {
     this.getCity(this.state.name);
@@ -151,13 +161,12 @@ console.log(mapped)
   }
 
   render() {
-
     const img = `http://openweathermap.org/img/wn/${this.props.icon}@2x.png`;
 
     String.prototype.capitalize = function () {
       return this.charAt(0).toUpperCase() + this.slice(1);
     };
-    
+
     if (this.state.loading && !this.props.name) {
       return (
         <div className={AppModules.loader}>
@@ -176,20 +185,20 @@ console.log(mapped)
           <div className={AppModules.wrapper}>
             <div className={AppModules.weatherInfo}>
               <div className={AppModules.suggestList}>
-              <div className={AppModules.search}>
-                <input
-                  className={AppModules.textField}
-                  value={this.state.name}
-                  onChange={this.onInputOnChange}
-                  placeholder="Enter a city"
-                ></input>
-                <div className={AppModules.icon} onClick={this.onSearchClick}>
-                  <FontAwesomeIcon icon={faSearchLocation} />
+                <div className={AppModules.search}>
+                  <input
+                    className={AppModules.textField}
+                    value={this.state.name}
+                    onChange={this.onInputOnChange}
+                    placeholder="Enter a city"
+                  ></input>
+                  <div className={AppModules.icon} onClick={this.onSearchClick}>
+                    <FontAwesomeIcon icon={faSearchLocation} />
+                  </div>
                 </div>
-                </div>
-                {this.state.suggest &&(
-                <div className={AppModules.suggest}>{this.state.suggest}</div>
-               )}
+                {this.state.suggest && (
+                  <div className={AppModules.suggest}>{this.state.suggest}</div>
+                )}
               </div>
               <div className={AppModules.wrapperWeather}>
                 <div className={AppModules.name}>{this.props.name}</div>

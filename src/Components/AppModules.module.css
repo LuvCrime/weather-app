@@ -177,18 +177,34 @@ input:focus {
 }
 
 .suggestList {
-  position: relative
+  position: relative;
 }
+
 .suggest {
   position: absolute;
   display: flex;
   flex-direction: column;
   background-color: white;
-  border: 1px solid black;
+  border: solid 1px #ccc;
   z-index: 10;
-  left: 456.2px;
-  max-width: 160px;
-  font-size: 20px;
+  left: 426.2px;
+  max-width: 150px;
+  font-size: 18px;
+  min-width: 149px;
+  border-radius: 10px;
+  border-top: none;
+  cursor: pointer;
+  font-family: "Noto Sans", sans-serif;
+  font-family: "Open Sans", sans-serif;
+  font-family: "Roboto", sans-serif;
+}
+
+.city {
+  padding: 5px 0 5px 0;
+}
+
+.city:hover {
+  color: #515ada;
 }
 
 .weekWeather {
@@ -221,7 +237,7 @@ input:focus {
     min-width: 320px;
     border-radius: 0;
   }
-  
+
   .search,
   .wrapperWeather,
   .dayOftheWeek {
@@ -310,6 +326,44 @@ input:focus {
     right: 0px;
   }
 }
+
+@media (min-width: 1001px) and (max-width: 1450px) {
+  .weatherInfo {
+    min-height: 534px;
+    min-width: 667px;
+    max-height: 535px;
+    max-width: 668px;
+  }
+
+  .search,
+  .wrapperWeather,
+  .dayOftheWeek {
+    margin: 10px;
+    font-size: 12px;
+  }
+  .search {
+    margin-top: 50px;
+  }
+  .temp::after {
+    width: 2px;
+    height: 2px;
+    right: 0px;
+  }
+
+  .suggest {
+    left: 426.2px;
+    max-width: 150px;
+    font-size: 12px;
+    min-width: 149px;
+    border-radius: 10px;
+    border-top: none;
+    cursor: pointer;
+    font-family: "Noto Sans", sans-serif;
+    font-family: "Open Sans", sans-serif;
+    font-family: "Roboto", sans-serif;
+  }
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
