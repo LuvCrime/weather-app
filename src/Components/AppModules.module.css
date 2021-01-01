@@ -187,7 +187,7 @@ input:focus {
   background-color: white;
   border: solid 1px #ccc;
   z-index: 10;
-  left: 426.2px;
+  left: 316.2px;
   max-width: 150px;
   font-size: 18px;
   min-width: 149px;
@@ -236,6 +236,7 @@ input:focus {
     min-height: 448px;
     min-width: 320px;
     border-radius: 0;
+    background: none;
   }
 
   .search,
@@ -243,6 +244,9 @@ input:focus {
   .dayOftheWeek {
     margin: 10px;
     font-size: 11px;
+  }
+  .dayOftheWeek {
+    flex-direction: column;
   }
 
   .icon {
@@ -258,6 +262,14 @@ input:focus {
   .img img {
     width: 50px;
     height: auto;
+  }
+  .suggest {
+    left: 89.2px;
+
+  }
+  .weekWeather{
+    justify-content: center;
+    min-height: 10px;
   }
 }
 @media (min-width: 322px) and (max-width: 413px) {
@@ -265,6 +277,7 @@ input:focus {
     min-height: 448px;
     min-width: 375px;
     border-radius: 0;
+    background: none;
   }
   .search,
   .wrapperWeather,
@@ -287,9 +300,29 @@ input:focus {
     width: 50px;
     height: auto;
   }
+  .weekWeather{
+    box-sizing: border-box;
+   min-height: 0;
+  }
+  .dayOftheWeek {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .suggest {
+    left: 117.2px;
+  }
 }
 
 @media (min-width: 414px) and (max-width: 667px) {
+  .App {
+    overflow: hidden;
+  }
+
+  .suggest {
+    left: 151.2px;
+  }
+  
   .weatherInfo {
     min-height: 452px;
     min-width: 414px;
@@ -305,6 +338,9 @@ input:focus {
     width: 2px;
     height: 2px;
     right: 0px;
+  }
+  .weekWeather {
+    min-width: 59px;
   }
 }
 
@@ -327,7 +363,7 @@ input:focus {
   }
 }
 
-@media (min-width: 1001px) and (max-width: 1450px) {
+@media (min-width: 1001px)  {
   .weatherInfo {
     min-height: 534px;
     min-width: 667px;
@@ -351,7 +387,7 @@ input:focus {
   }
 
   .suggest {
-    left: 426.2px;
+    left: 268.2px;
     max-width: 150px;
     font-size: 12px;
     min-width: 149px;
@@ -363,6 +399,8 @@ input:focus {
     font-family: "Roboto", sans-serif;
   }
 }
+
+
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
